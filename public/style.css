@@ -98,7 +98,11 @@
   color: #eb534b;
 }
 
-.unmute,
-.stop {
+#cam-off,
+#mic-off {
   color: #cc3b33;
+}
+
+.none{
+    display: none;
 }
