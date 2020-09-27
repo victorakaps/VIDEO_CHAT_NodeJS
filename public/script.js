@@ -1,3 +1,7 @@
+String.prototype.capitalize = function () {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
 const socket = io("/");
 const videoGrid = document.getElementById("video-grid");
 const myPeer = new Peer(undefined, {
@@ -7,7 +11,9 @@ const myPeer = new Peer(undefined, {
 });
 let myVideoStream;
 const myVideo = document.createElement("video");
-const username = prompt("Please Enter Your Name: ");
+let username = prompt("Please Enter Your Name: ");
+username = username.capitalize();
+console.log(username);
 myVideo.muted = true;
 const peers = {};
 navigator.mediaDevices
@@ -99,3 +105,16 @@ function leave() {
   myVideoStream.getVideoTracks()[0].enabled = false;
   window.location.replace("/leave.html");
 }
+
+let url = document.location.href;
+
+new Clipboard(".btn", {
+  text: function () {
+    return url;
+  },
+});
+
+$("#copy-btn").click(function () {
+  alert("Link copied to clipboard, share it with other Atendee(s)");
+  $("#copy-btn").toggleClass("copy-btn");
+});

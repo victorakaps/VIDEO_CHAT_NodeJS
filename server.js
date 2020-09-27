@@ -8,13 +8,23 @@ const peerServer = ExpressPeerServer(server, {
 });
 const { v4: uuidV4 } = require("uuid");
 
+function randomNumber(length) {
+  var text = "";
+  var possible = "123456789";
+  for (var i = 0; i < length; i++) {
+    var sup = Math.floor(Math.random() * possible.length);
+    text += i > 0 && sup == i ? "0" : possible.charAt(sup);
+  }
+  return text;
+}
+
 app.use("/peerjs", peerServer);
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.redirect(`/${uuidV4()}`);
+  res.redirect(`/${randomNumber(4)}`);
 });
 
 app.get("/:room", (req, res) => {
