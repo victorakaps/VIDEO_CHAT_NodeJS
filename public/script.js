@@ -43,11 +43,9 @@ navigator.mediaDevices
       }
     });
     socket.on("createMessage", (message) => {
-      let sender = message.split("@")[0];
+      let sender = message.split("@")[0].capitalize();
       let text = message.split("@")[1];
-      $("ul").append(
-        `<li class="message"><b>${username}</b><br/>${message}</li>`
-      );
+      $("ul").append(`<li class="message"><b>${sender}</b><br/>${text}</li>`);
       scrollToBottom();
     });
   });
