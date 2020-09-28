@@ -1,14 +1,18 @@
 {
   "name": "video-chat",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a webrtc based peer to peer video chat room app, made using socket.io and peerjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victorakaps/BIDEO--VIDEO_CHAT"
+  },
+  "author": "Parth Sethi @victorakaps",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.5",
@@ -16,5 +20,6 @@
     "peer": "^0.5.3",
     "peerjs": "^1.3.1",
     "socket.io": "^2.3.0"
-  }
+  },
+  "homepage": "https://video-chat-room.herokuapp.com/"
 }
