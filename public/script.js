@@ -38,11 +38,13 @@ navigator.mediaDevices
     let text = $("input");
     $("html").keydown(function (e) {
       if (e.which == 13 && text.val().length !== 0) {
-        socket.emit("message", text.val());
+        socket.emit("message", username + "@" + text.val());
         text.val("");
       }
     });
-    socket.on("createMessage", (username,message) => {
+    socket.on("createMessage", (message) => {
+      let sender = message.split("@")[0];
+      let text = message.split("@")[1];
       $("ul").append(
         `<li class="message"><b>${username}</b><br/>${message}</li>`
       );
