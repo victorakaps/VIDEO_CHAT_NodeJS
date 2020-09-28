@@ -92,6 +92,7 @@
   background-color: transparent;
   border: none;
   color: #f5f5f5;
+  outline: none;
 }
 
 .leave_meeting {

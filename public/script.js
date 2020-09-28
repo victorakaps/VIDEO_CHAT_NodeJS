@@ -42,7 +42,7 @@ navigator.mediaDevices
         text.val("");
       }
     });
-    socket.on("createMessage", (message) => {
+    socket.on("createMessage", (username,message) => {
       $("ul").append(
         `<li class="message"><b>${username}</b><br/>${message}</li>`
       );
