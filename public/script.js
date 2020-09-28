@@ -16,7 +16,7 @@ let myVideoStream;
 const myVideo = document.createElement("video");
 
 let username;
-// username = prompt("Please Enter Your Name: ");
+username = prompt("Please Enter Your Name: ");
 username ? (username = username.capitalize()) : (username = "Anonymous");
 // console.log(username);
 
