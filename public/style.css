@@ -1,3 +1,16 @@
+#video-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+video {
+  height: 300px;
+  width: 400px;
+  object-fit: cover;
+  padding: 8px;
+}
+
 .main {
   height: 100vh;
   display: flex;
@@ -104,32 +117,38 @@
   color: #cc3b33;
 }
 
-.none{
-    display: none;
+.none {
+  display: none;
 }
 
-.copy-btn{
-  background-color: white;
-  color: #343434;
-}
-
-.copy-btn:hover{
+.copy-btn:hover {
   color: #cc3b33;
 }
 
-.logo{
-  background-color: white;
+.logo {
+  background-color: rgba(256, 256, 256, 1);
   color: #1c1e20;
   padding: 5px;
   margin-bottom: 10px;
 }
-.logo-code{
+.logo-code {
   font-weight: bolder;
 }
-.room-code{
+.room-code {
   text-align: right;
   padding-right: 5px;
 }
-.chat-code{
+.chat-code {
   margin: 10px;
+}
+
+.created-by {
+  background-color: rgba(256, 256, 256, 1);
+  color: #1c1e20;
+  text-align: center;
+  font-weight: bold;
+}
+
+.created-by > a > img{
+  width: 30px;
 }

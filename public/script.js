@@ -3,17 +3,24 @@ String.prototype.capitalize = function () {
 };
 
 const socket = io("/");
+
 const videoGrid = document.getElementById("video-grid");
+
 const myPeer = new Peer(undefined, {
   path: "/peerjs",
   host: "/",
   port: "443",
 });
+
 let myVideoStream;
 const myVideo = document.createElement("video");
-let username = prompt("Please Enter Your Name: ");
-username = username.capitalize();
-console.log(username);
+
+let username;
+// username = prompt("Please Enter Your Name: ");
+username ? (username = username.capitalize()) : (username = "Anonymous");
+// console.log(username);
+
+
 myVideo.muted = true;
 const peers = {};
 navigator.mediaDevices
@@ -44,7 +51,7 @@ navigator.mediaDevices
     });
     socket.on("createMessage", (message) => {
       let sender = message.split("@")[0].capitalize();
-      let text = message.split("@")[1];
+      let text = message.split("@")[1].capitalize();
       $("ul").append(`<li class="message"><b>${sender}</b><br/>${text}</li>`);
       scrollToBottom();
     });
@@ -106,6 +113,13 @@ function leave() {
   window.location.replace("/leave.html");
 }
 
+function join() {
+  let roomCode = prompt("PLEASE ENTER 4 DIGIT ROOM-CODE: ");
+  if (roomCode) {
+    window.location.replace(`/${roomCode}`);
+  }
+}
+
 let url = document.location.href;
 
 new Clipboard(".btn", {
@@ -116,5 +130,4 @@ new Clipboard(".btn", {
 
 $("#copy-btn").click(function () {
   alert("Link copied to clipboard, share it with other Atendee(s)");
-  $("#copy-btn").toggleClass("copy-btn");
 });

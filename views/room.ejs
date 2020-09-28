@@ -22,20 +22,6 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="script.js" defer></script>
-    <style>
-        #video-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        video {
-            height: 300px;
-            width: 400px;
-            object-fit: cover;
-            padding: 8px;
-        }
-    </style>
 </head>
 
 <body>
@@ -48,6 +34,8 @@
             </div>
             <div class="main__controls">
                 <div class="main__controls__block">
+                    <div class="main__controls__button"></div>
+                    <div class="main__controls__button"></div>
                     <div class="main__controls__button"></div>
                 </div>
                 <div class="main__controls__block">
@@ -63,12 +51,15 @@
                     <div onclick="playStop()" class="main__controls__button main__video_button none" id="cam-off">
                         <i class="material-icons">videocam_off</i>
                     </div>
-                    <div class="main__controls__button main__video_button copy-btn" id="copy-btn">
-                        <i class="material-icons btn">share</i>
+                    <div class="main__controls__button main__video_button" onclick="join()">
+                        <i class="material-icons">group_add</i>
                     </div>
                 </div>
 
                 <div class="main__controls__block">
+                    <div class="main__controls__button copy-btn" id="copy-btn">
+                        <span class="leave_meeting btn">Copy Room Link</span>
+                    </div>
                     <div class="main__controls__button" onclick="leave()">
                         <span class="leave_meeting">Leave Meeting</span>
                     </div>
@@ -81,7 +72,7 @@
                 <h6 class="room-code">ROOM CODE: <%= roomId %></h6>
             </div>
             <div class="main__header">
-                <h5 class="chat-code">LIVE  CHAT <i class="material-icons">chat</i></h5>
+                <h5 class="chat-code">LIVE CHAT <i class="material-icons">chat</i></h5>
             </div>
             <div class="main__chat_window">
                 <ul class="messages">
@@ -89,6 +80,11 @@
             </div>
             <div class="main__message_container">
                 <input id="chat_message" type="text" placeholder="Type message here...">
+            </div>
+            <div class="created-by">Created By Parth Sethi
+                <a href="https://github.com/victorakaps">
+                    <img src="https://img.icons8.com/material-outlined/48/000000/github.png" />
+                </a>
             </div>
         </div>
     </div>
